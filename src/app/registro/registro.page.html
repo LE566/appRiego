@@ -1,0 +1,42 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="container maT">
+
+    <ion-card color="light">
+      <ion-card-header>
+        <ion-card-title class="title-card">Register</ion-card-title>
+        <div class="container-img">
+          <img
+            src='assets/img/image.png'
+            alt="Logo"
+          >
+        </div>
+
+
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-input [(ngModel)]="credenciales.usuario" placeholder="Username" type="text"></ion-input>
+
+        <ion-input [(ngModel)]="credenciales.email" placeholder="Email" type="email" required></ion-input>
+
+
+        <ion-input [(ngModel)]="credenciales.password" placeholder="Password" type="password" required>
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+      </ion-card-content>
+        <ion-button (click)="insertar()" fill="solid" expand="block">Register</ion-button>
+      
+
+      <div class="forgot-container">
+        <a href="login" class="label-registrar">Ya tengo una cuenta</a>
+      </div>
+
+    </ion-card>
+  </div>
+
+</ion-content>
