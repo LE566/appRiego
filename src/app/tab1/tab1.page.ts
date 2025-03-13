@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonImg, IonButton],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton],
 })
 export class Tab1Page {
   constructor(private http: HttpClient) {}
@@ -31,6 +31,17 @@ export class Tab1Page {
   // }
   stateConfiguracion() {
     this.http.put(`https://apiriego.onrender.com/actualizarEstado/67bb6f2e85118d10af317f79`,{
+      headers: { 'Content-Type': 'application/json' }
+    }).subscribe(response => {
+        console.log('Estado actualizado:', response);
+        this.mostrarAlerta('Estado actualizado', 'Se ha actualizado el estado de la configuración.');
+      }, error => {
+        console.error('Error al actualizar estado:', error);
+        this.mostrarAlerta('Error al actualizar estado', 'Hubo un problema al actualizar el estado de la configuración.');
+      });
+  }
+  stateConfiguracion2() {
+    this.http.put(`https://apiriego.onrender.com/actualizarEstado/67bb79ac1c82e9d42d445882`,{
       headers: { 'Content-Type': 'application/json' }
     }).subscribe(response => {
         console.log('Estado actualizado:', response);

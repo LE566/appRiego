@@ -1,23 +1,26 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@75..100,400..900&display=swap" rel="stylesheet">
+<ion-header [translucent]="true" >
+  <ion-toolbar class="head">
+    <ion-title class="title">
+      Configuracion
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <h1>Sector 1</h1>
+<ion-content [fullscreen]="true" class="fondo">
+  <h1 class="h1">Sector 1</h1>
   <ion-grid>
     <ion-row>
       <ion-col>
-        <h3>Fecha de inicio</h3>
+        <h3 class="h3">Fecha de inicio</h3>
       </ion-col>
       <ion-col>
-        <ion-datetime-button datetime="datetime-inicio" ></ion-datetime-button>
-        <ion-modal [keepContentsMounted]="true">
-          <ng-template>
-            <ion-datetime id="datetime-inicio" presentation="date" (ionChange)="onFechaInicioChange($event)"></ion-datetime>
+        <ion-datetime-button datetime="datetime-inicio"  ></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true" class="datetime-inicio" >
+          <ng-template >
+            <ion-datetime class="datetime-inicio" id="datetime-inicio" presentation="date" (ionChange)="onFechaInicioChange($event)" ></ion-datetime>
           </ng-template>
         </ion-modal>
       </ion-col>
@@ -43,10 +46,10 @@
 
 
 
-  <h2>Dias de la semana</h2>
+  <h1 class="h1">Dias de la semana</h1>
   <ion-grid>
     <ion-row class="ion-justify-content-center">
-      <ion-col size="auto" *ngFor="let dia of dias">
+      <ion-col size="auto" *ngFor="let dia of diasSector1">
         <ion-button
           class="alarma" 
           [ngClass]="{'selected': dia.selected}" 
@@ -106,20 +109,20 @@
     </ion-row>
   </ion-grid>
 
-  <ion-button expand="block" (click)="guardar()">Guardar</ion-button>
+  <ion-button class="Guardar Guardarancho" expand="block" (click)="guardar('67bb6f2e85118d10af317f79')">Guardar</ion-button>
 
 
-  <h1>Sector 2</h1>
+  <h1 class="h1">Sector 2</h1>
   <ion-grid>
     <ion-row>
       <ion-col>
         <h3>Fecha de inicio</h3>
       </ion-col>
       <ion-col>
-        <ion-datetime-button datetime="datetime-inicio"></ion-datetime-button>
+        <ion-datetime-button datetime="datetime-inicio2"></ion-datetime-button>
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
-            <ion-datetime id="datetime-inicio" presentation="date"></ion-datetime>
+            <ion-datetime id="datetime-inicio2"presentation="date" (ionChange)="onFechaInicioChange2($event)"></ion-datetime>
           </ng-template>
         </ion-modal>
       </ion-col>
@@ -132,10 +135,10 @@
         <h3>Fecha de fin</h3>
       </ion-col>
       <ion-col>
-        <ion-datetime-button datetime="datetime-fin"></ion-datetime-button>
+        <ion-datetime-button datetime="datetime-fin2"></ion-datetime-button>
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
-            <ion-datetime id="datetime-fin" presentation="date"></ion-datetime>
+            <ion-datetime id="datetime-fin2" presentation="date" (ionChange)="onFechaFinChange2($event)"></ion-datetime>
           </ng-template>
         </ion-modal>
       </ion-col>
@@ -145,15 +148,15 @@
 
 
 
-  <h2>Dias de la semana</h2>
+  <h1 class="h1">Dias de la semana</h1>
   <ion-grid>
     <ion-row class="ion-justify-content-center">
-      <ion-col size="auto" *ngFor="let dia of dias">
+      <ion-col size="auto" *ngFor="let dia of diasSector2">
         <ion-button
           class="alarma" 
           [ngClass]="{'selected': dia.selected}" 
-          (click)="toggleDia(dia)">
-          {{ dia.nombre }}
+          (click)="toggleDia2(dia)">
+          {{ getPrimeraLetra(dia.nombre) }}
         </ion-button>
       </ion-col>
     </ion-row>
@@ -165,10 +168,10 @@
         <h3>Hora de apertura</h3>
       </ion-col>
       <ion-col>
-        <ion-datetime-button datetime="datetime-hora-apertura"></ion-datetime-button>
+        <ion-datetime-button datetime="datetime-hora-apertura2"></ion-datetime-button>
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
-            <ion-datetime id="datetime-hora-apertura" presentation="time"></ion-datetime>
+            <ion-datetime id="datetime-hora-apertura2" presentation="time" (ionChange)="onHoraInicioChange2($event)"></ion-datetime>
           </ng-template>
         </ion-modal>
       </ion-col>
@@ -181,7 +184,7 @@
         <h3>Duracion (min)</h3>
       </ion-col>
       <ion-col>
-        <ion-input type="number" id="duracion" placeholder="Agregue la duracion"></ion-input>
+        <ion-input [(ngModel)]="configuracion2.duracion" type="number" id="duracion" placeholder="Agregue la duracion"></ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -192,7 +195,7 @@
         <h3>Pausas</h3>
       </ion-col>
       <ion-col>
-        <ion-input type="number" id="pausas" placeholder="Agregue las pausas"></ion-input>
+        <ion-input [(ngModel)]="configuracion2.pausas" type="number" id="pausas" placeholder="Agregue las pausas"></ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -203,10 +206,10 @@
         <h3>Timepo entre pausas (min)</h3>
       </ion-col>
       <ion-col>
-        <ion-input type="number" id="tiempo-pausas" placeholder="Tiempo entre pausas"></ion-input>
+        <ion-input [(ngModel)]="configuracion2.duracionPausa" type="number" id="tiempo-pausas" placeholder="Tiempo entre pausas"></ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-button expand="block" (click)="guardar()">Guardar</ion-button>
+  <ion-button class="Guardar Guardarancho" expand="block" (click)="guardar2('67bb79ac1c82e9d42d445882')">Guardar</ion-button>
 </ion-content>

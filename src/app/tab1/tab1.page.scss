@@ -1,38 +1,78 @@
 .btn1{
-    margin-top: 60px;
-    width: 80%;
-    margin-left: 10%;
-    --background:#193E2E;
+    margin-top: 50px;
+    width: 100%;
+
+    --background:#74E59C;
     color: #ffffff;
 }
 .btn2{
-    margin-top: 60px;
-    width: 80%;
-    margin-left: 10%;
-    --background:#193E2E;
+    margin-top: 50px;
+    width: 100%;
+
+    --background:#74E59C;
     color: #ffffff;
 }
-.contBtn1{
-    margin-top: 45%;
-    margin-bottom: 100px;
+.parent-container {
+    display: flex;
+    justify-content: center; // Centra horizontalmente
+    align-items: center; // Centra verticalmente
+    height: 88vh; // Altura completa de la pantalla (ajústala según necesites)
+    flex-direction: column; // Si quieres que estén en columna
 }
-.contBtn2{
-    margin-top: 100px;
+
+.contBtn1, 
+.contBtn2 {
     margin-bottom: 100px;
+    width: 50%;
+    margin-top: 0;
+
 }
+
 h1{
     display: flex;
     justify-content: center;
     align-items: center;
     color: black;
+    font-family: "Tektur", sans-serif;
+    font-weight: 900;
+
 }
 .fondo{
     --background: #ffffff;
 }
 .head{
-    --background: #00C2B5;
+    --background: #38A1D2;
+    font-family: "Tektur", sans-serif;
+    font-weight: 900;
+    height: 4.5rem;
 }
 .title{
    text-align: center;
    font-weight: 900;
+   margin-top: 1.4rem;
+   font-size: 1.6rem;
+}
+@media (min-width: 768px) {
+    .contBtn1only, 
+    .contBtn2only {
+        margin-left: 41%;
+    }
+    .btn1{
+        width: 30%;
+
+        color: #ffffff;
+    }
+    .btn2{
+        width: 30%;
+
+        color: #ffffff;
+    }
+    .fondo{
+        --background: #ffffff;
+    }
+    .title{
+       text-align: center;
+       font-weight: 900;
+    }
+
 }

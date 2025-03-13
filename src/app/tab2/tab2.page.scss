@@ -5,10 +5,70 @@
     --background: #f0f0f0;
     --color: #333;
     --border-radius: 50%;
+    --font-family: "Tektur", sans-serif;
   
     &.selected {
-      --background: #3880ff;
+      --background: #74E59C ;
       --color: white;
     }
   }
+
+.fondo {
+  --background: #ffffff;
+  --color: #333;
+  
+  
+}
+
+.head{
+  --background: #38A1D2;
+  font-family: "Tektur", sans-serif;
+  font-weight: 900;
+  height: 4.5rem;
+}
+
+.title{
+  text-align: center;
+  font-weight: 900;
+  margin-top: 1.4rem;
+  font-size: 1.6rem;
+  
+}
+
+ion-datetime-button::part(native) {
+  background-color: #74E59C !important;
+  color: #000 !important; 
+  border-radius: 8px; 
+  padding: 10px 15px; 
+  border: 3px solid #F4E6AE;
+  font-weight: 900;
+  font-family: "Tektur", sans-serif;
+}
+.h1{
+  color: #74E59C;
+  margin-left: 7px;
+  font-weight: 900;
+  
+  
+}
+h3{
+  color: #011A3D;
+  font-weight: 900;
+  margin-left: 1.6rem;
+}
+
+.Guardar{
+  --background: #74E59C;
+  --color: #ffffff;
+  --font-weight: 900;
+  --font-family: "Tektur", sans-serif;
+}
+
+@media (min-width: 768px) {
+  .Guardarancho{
+    width: 50%;
+    margin-left: 25%;
+  }
+}
+
   

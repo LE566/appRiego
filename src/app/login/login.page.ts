@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { NavController } from '@ionic/angular/standalone';
+import {FormsModule } from '@angular/forms';
+import { NavController, IonItem, IonLabel } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { UsuariosService } from '../services/usuarios.service';
 import { AlertController } from '@ionic/angular';
@@ -12,8 +12,12 @@ import {IonContent, IonHeader, IonTitle, IonToolbar,IonAlert   ,IonButton,
   IonCardSubtitle,
 
 
+  
+
+
   IonCardTitle, IonInput, IonImg, IonInputPasswordToggle, IonText} from '@ionic/angular/standalone';
 import { RedirectCommand } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -22,10 +26,11 @@ import { RedirectCommand } from '@angular/router';
   styleUrls: ['./login.page.scss'],
   standalone: true,
 
-  imports: [IonContent,IonHeader, IonInputPasswordToggle, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonInput]
+  imports: [IonContent, IonHeader, IonInputPasswordToggle, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonInput]
 
 })
 export class LoginPage implements OnInit {
+/*   loginForm : FormGroup */
   credenciales={
     usuario: '',
     password:''
@@ -35,10 +40,16 @@ export class LoginPage implements OnInit {
     password:''
   }
   data:any
-  constructor(private ruta: Router, private userS: UsuariosService, private alertController: AlertController) { }
+  constructor(private fb: FormBuilder, private ruta: Router, private userS: UsuariosService, private alertController: AlertController) {
+/*     this.loginForm = this.fb.group({
+      usuario: ['', Validators.required, Validators.email],
+      password: ['', Validators.required, Validators.minLength(6)]
+    }) */
+   }
 
   ngOnInit() {
     this.userS.getUsers().subscribe((res: any) => {
+
       console.log("Respuesta completa:", res);
 
       if (res?.Respuesta?.length > 0) {
@@ -49,6 +60,7 @@ export class LoginPage implements OnInit {
       }
     });
   }
+
 
 
   mostrarAlerta(titulo: string, mensaje: string) {

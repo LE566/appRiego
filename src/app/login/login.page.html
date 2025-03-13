@@ -4,38 +4,55 @@
       <ion-title size="large">Login</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class="container maT">
 
+  <div class="container maT">
     <ion-card color="light">
       <ion-card-header>
         <ion-card-title class="title-card">Login</ion-card-title>
+
         <div class="container-img">
-          <img
-            src='assets/img/image.png'
-            alt="Logo"
-          >
+          <img src='assets/img/image.png' alt="Logo" />
         </div>
-
-
       </ion-card-header>
-    
+
       <ion-card-content>
-        <ion-input [(ngModel)]="usuariosCredes.usuario" placeholder="Username" type="text" required></ion-input>
+        <!-- Usuario Input -->
+        <ion-input
+          [(ngModel)]="usuariosCredes.usuario"
+          name="usuario"
+          placeholder="Username"
+          type="text"
+          required
+          minlength="3"
+          email
+          #usuario="ngModel"
+        ></ion-input>
 
 
-        <ion-input [(ngModel)]="usuariosCredes.password" placeholder="Password" type="password" required>
+        <!-- Contraseña Input -->
+        <ion-input
+          [(ngModel)]="usuariosCredes.password"
+          name="password"
+          placeholder="Password"
+          type="password"
+          required
+          minlength="6"
+          #password="ngModel"
+        >
           <ion-input-password-toggle slot="end"></ion-input-password-toggle>
         </ion-input>
+
+
       </ion-card-content>
-        <ion-button (click)="mostrar()" fill="solid" expand="block">Login</ion-button>
-      
+
+      <ion-button (click)="mostrar()" fill="solid" expand="block" >
+        Login
+      </ion-button>
 
       <div class="forgot-container">
         <a href="a" class="label-registrar">Olvidaste Tu Contrasena?</a>
         <a href="registro" class="label-registrar">Registrarse</a>
       </div>
-
     </ion-card>
   </div>
-
 </ion-content>

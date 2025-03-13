@@ -1,3 +1,6 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@75..100,400..900&display=swap" rel="stylesheet">
 <ion-header [translucent]="true">
   <ion-toolbar class="head">
     <ion-title class="title">
@@ -7,17 +10,25 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="fondo">
-  
-  <div class="contBtn1">
-    <h1>Sector 1</h1>
-    <ion-button class="btn1" fill="solid" expand="block" (click)="stateConfiguracion()">Activar</ion-button>
+  <div class="parent-container">
+    <div class="contBtn1">
+      <h1>Sector 1</h1>
+      <div class="contBtn1only">
+        <ion-button class="btn1" fill="solid" expand="block" (click)="stateConfiguracion()">Activar</ion-button>
+      </div>
+
+    </div>
+    
+    
+    <div class="contBtn2">
+      <h1>Sector 2</h1>
+      <div class="contBtn2only">
+        <ion-button class="btn2" fill="solid" expand="block" (click)="stateConfiguracion2()">Activar</ion-button>
+      </div>
+
+    </div>
   </div>
   
-  
-  <div class="contBtn2">
-    <h1>Sector 2</h1>
-    <ion-button class="btn2" fill="solid" expand="block">Activar</ion-button>
-  </div>
  
   
 </ion-content>
