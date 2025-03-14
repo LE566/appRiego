@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['tab1.page.scss'],
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton],
 })
+
 export class Tab1Page {
   constructor(private http: HttpClient) {}
   ngOnInit(){

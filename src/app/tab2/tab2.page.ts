@@ -12,6 +12,7 @@ import { UsuariosService } from '../services/usuarios.service';
   imports: [FormsModule, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonButton, CommonModule, IonDatetime, IonDatetimeButton, IonModal, IonInput]
 })
 
+
 export class Tab2Page {
   configuracion: {estado: boolean, fechaInicio: string; fechaFin: string; duracion: number; dias: string[]; horaInicio: string; pausas: number; duracionPausa: number } = {
     fechaInicio: this.getLocalDate(),
