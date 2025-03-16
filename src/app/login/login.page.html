@@ -1,22 +1,26 @@
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Login</ion-title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@75..100,400..900&display=swap" rel="stylesheet">
+<ion-content [fullscreen]="true" class="fondo">
+  <ion-header [translucent]="true">
+    <ion-toolbar class="head">
+      <ion-title class="title">
+        Aqua Control
+      </ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div class="container maT">
-    <ion-card color="light">
+    <ion-card color="fondo card">
       <ion-card-header>
-        <ion-card-title class="title-card">Login</ion-card-title>
-
         <div class="container-img">
-          <img src='assets/img/image.png' alt="Logo" />
+          <img src='assets/img/logo.jpg' alt="Logo" class="img-logo" />
         </div>
       </ion-card-header>
 
       <ion-card-content>
         <!-- Usuario Input -->
+         
         <ion-input
           [(ngModel)]="usuariosCredes.usuario"
           name="usuario"
@@ -25,7 +29,9 @@
           required
           minlength="3"
           email
-          #usuario="ngModel"
+          #usuario="ngModel" 
+          class="input1"
+          style="--padding-top: 15px; --padding-bottom: 15px;"
         ></ion-input>
 
 
@@ -38,21 +44,23 @@
           required
           minlength="6"
           #password="ngModel"
+          class="input1"
         >
-          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          <ion-input-password-toggle slot="end" class="ojo"></ion-input-password-toggle>
         </ion-input>
 
 
       </ion-card-content>
 
-      <ion-button (click)="mostrar()" fill="solid" expand="block" >
+      <ion-button (click)="mostrar()" fill="solid" expand="block" class="login-button">
         Login
       </ion-button>
 
       <div class="forgot-container">
-        <a href="a" class="label-registrar">Olvidaste Tu Contrasena?</a>
-        <a href="registro" class="label-registrar">Registrarse</a>
+        <p>Don’t have an account?</p>
+        <a href="registro" class="label-registrar sombra">Request Now</a>
       </div>
     </ion-card>
   </div>
+  
 </ion-content>
