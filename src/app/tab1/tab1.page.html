@@ -14,8 +14,15 @@
     <div class="contBtn1">
       <h1>Sector 1</h1>
       <div class="contBtn1only">
-        <ion-button class="btn1" fill="solid" expand="block" (click)="stateConfiguracion()">Activar</ion-button>
+        <ion-button 
+          [ngClass]="{'btn1-on': estado1, 'btn1-off': !estado1}" 
+          fill="solid" 
+          expand="block" 
+          (click)="toggleEstado1()">
+          {{ estado1 ? 'Desactivar' : 'Activar' }}
+        </ion-button>
       </div>
+      
 
     </div>
     
@@ -23,7 +30,13 @@
     <div class="contBtn2">
       <h1>Sector 2</h1>
       <div class="contBtn2only">
-        <ion-button class="btn2" fill="solid" expand="block" (click)="stateConfiguracion2()">Activar</ion-button>
+        <ion-button 
+          [ngClass]="{'btn2-on': estado2, 'btn2-off': !estado2}" 
+          fill="solid" 
+          expand="block" 
+          (click)="toggleEstado2()">
+          {{ estado2 ? 'Desactivar' : 'Activar' }}
+        </ion-button>
       </div>
 
     </div>

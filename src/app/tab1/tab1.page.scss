@@ -1,15 +1,29 @@
-.btn1{
+.btn1-on{
     margin-top: 50px;
     width: 100%;
 
     --background:#74E59C;
     color: #ffffff;
 }
-.btn2{
+.btn1-off{
+    margin-top: 50px;
+    width: 100%;
+
+    --background:#d92121;
+    color: #ffffff;
+}
+.btn2-on{
     margin-top: 50px;
     width: 100%;
 
     --background:#74E59C;
+    color: #ffffff;
+}
+.btn2-off{
+    margin-top: 50px;
+    width: 100%;
+
+    --background:#d92121;
     color: #ffffff;
 }
 .parent-container {
@@ -49,7 +63,7 @@ h1{
 .title{
    text-align: center;
    font-weight: 900;
-   margin-top: 1.4rem;
+//    margin-top: 1.4rem;
    font-size: 1.6rem;
 }
 @media (min-width: 768px) {
@@ -57,12 +71,22 @@ h1{
     .contBtn2only {
         margin-left: 41%;
     }
-    .btn1{
+    .btn1-on{
         width: 30%;
 
         color: #ffffff;
     }
-    .btn2{
+    .btn1-off{
+        width: 30%;
+
+        color: #ffffff;
+    }
+    .btn2-on{
+        width: 30%;
+
+        color: #ffffff;
+    }
+    .btn2-off{
         width: 30%;
 
         color: #ffffff;
@@ -76,3 +100,13 @@ h1{
     }
 
 }
+.btn-activar {
+    --background: #74E59C !important; /* Verde personalizado */
+    --color: #000 !important; /* Texto negro para contraste */
+  }
+  
+  .btn-desactivar {
+    --background: #E57474 !important; /* Rojo personalizado */
+    --color: #fff !important; /* Texto blanco */
+  }
+  

@@ -35,3 +35,15 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+ion-header{
+    padding-top: var(--ion-safe-area-top);
+}
+
+ion-content{
+    padding-bottom: var(--ion-safe-area-bottom);
+    padding-top: var(--ion-safe-area-top);
+}
+.title{
+    margin-bottom: 2.4rem;
+}
