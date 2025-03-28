@@ -13,7 +13,7 @@ import { UsuariosService } from '../services/usuarios.service';
 })
 
 export class Tab2Page {
-  configuracion: {estado: boolean, fechaInicio: string; fechaFin: string; duracion: number; dias: string[]; horaInicio: string; pausas: number; duracionPausa: number } = {
+  configuracion: {estado: boolean, fechaInicio: string; fechaFin: string; duracion: number; dias: string[]; horaInicio: string; pausas: number; duracionPausa: number;  pausasHis: number; duracionPausaHis: number } = {
     fechaInicio: this.getLocalDate(),
     fechaFin: this.getLocalDate(),
     duracion: 0,
@@ -21,9 +21,11 @@ export class Tab2Page {
     horaInicio: this.getFormattedCurrentTime(),
     pausas: 0,
     duracionPausa: 0,
-    estado: false
+    estado: false,
+    pausasHis:0,
+    duracionPausaHis:0
   };
-  configuracion2: {estado: boolean, fechaInicio: string; fechaFin: string; duracion: number; dias: string[]; horaInicio: string; pausas: number; duracionPausa: number } = {
+  configuracion2: {estado: boolean, fechaInicio: string; fechaFin: string; duracion: number; dias: string[]; horaInicio: string; pausas: number; duracionPausa: number; pausasHis: number; duracionPausaHis: number} = {
     fechaInicio: this.getLocalDate(),
     fechaFin: this.getLocalDate(),
     duracion: 0,
@@ -31,7 +33,9 @@ export class Tab2Page {
     horaInicio: this.getFormattedCurrentTime(),
     pausas: 0,
     duracionPausa: 0,
-    estado: false
+    estado: false,
+    pausasHis:0,
+    duracionPausaHis:0
   };
   
   diasSector1 = [
@@ -86,7 +90,9 @@ export class Tab2Page {
       horaInicio: this.configuracion.horaInicio,
       pausas: this.configuracion.pausas,
       duracionPausa: this.configuracion.duracionPausa,
-      estado: this.configuracion.estado
+      estado: this.configuracion.estado,
+      pausasHis: this.configuracion.pausas,
+      duracionPausaHis: this.configuracion.duracionPausa
     };
   
     console.log('Datos a actualizar:', configuracionActualizada);
@@ -116,7 +122,9 @@ export class Tab2Page {
       horaInicio: this.configuracion2.horaInicio,
       pausas: this.configuracion2.pausas,
       duracionPausa: this.configuracion2.duracionPausa,
-      estado: this.configuracion2.estado
+      estado: this.configuracion2.estado,
+      pausasHis: this.configuracion2.pausas,
+      duracionPausaHis: this.configuracion2.duracionPausa
     };
   
     console.log('Datos a actualizar:', configuracionActualizada2);
