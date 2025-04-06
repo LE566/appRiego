@@ -1,6 +1,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@75..100,400..900&display=swap" rel="stylesheet">
+
 <ion-content [fullscreen]="true" class="fondo">
   <ion-header [translucent]="true">
     <ion-toolbar class="head">
@@ -13,14 +14,14 @@
   <div class="container maT">
     <ion-card color="fondo card">
       <ion-card-header>
+        <!-- Logo de la aplicación -->
         <div class="container-img">
           <img src='assets/img/logo.jpg' alt="Logo" class="img-logo" />
         </div>
       </ion-card-header>
 
       <ion-card-content>
-        <!-- Usuario Input -->
-         
+        <!-- Campo de entrada para el usuario -->
         <ion-input
           [(ngModel)]="usuariosCredes.usuario"
           name="usuario"
@@ -34,8 +35,7 @@
           style="--padding-top: 15px; --padding-bottom: 15px;"
         ></ion-input>
 
-
-        <!-- Contraseña Input -->
+        <!-- Campo de entrada para la contraseña -->
         <ion-input
           [(ngModel)]="usuariosCredes.password"
           name="password"
@@ -46,16 +46,17 @@
           #password="ngModel"
           class="input1"
         >
+          <!-- Opción para mostrar/ocultar la contraseña -->
           <ion-input-password-toggle slot="end" class="ojo"></ion-input-password-toggle>
         </ion-input>
-
-
       </ion-card-content>
 
+      <!-- Botón para realizar el login -->
       <ion-button (click)="mostrar()" fill="solid" expand="block" class="login-button">
         Login
       </ion-button>
 
+      <!-- Enlace para los usuarios que no tienen cuenta -->
       <div class="forgot-container">
         <p>Don’t have an account?</p>
         <a href="registro" class="label-registrar sombra">Request Now</a>

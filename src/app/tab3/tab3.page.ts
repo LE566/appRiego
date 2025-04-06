@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonRefresher, IonRefresherContent } from '@ionic/angular/standalone';
 import { HttpClient } from '@angular/common/http';
 
 declare var google: any;
@@ -9,14 +9,16 @@ declare var google: any;
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonRefresher, IonRefresherContent ],
 })
 export class Tab3Page implements AfterViewInit {
   // Esta variable almacenará los datos obtenidos de la API
   riegos: { fechaInicio: string; fechaFin: string; duracion: number; dias: string[]; sector: string; estadoValvula: boolean; }[] = [];
 
   constructor(private http: HttpClient) {}
-
+  ngOnInit() {
+    
+  }
   ngAfterViewInit() {
     this.loadGoogleCharts();
     this.getHistorialRiego(); // Llamada a la API para obtener los datos de riego
@@ -104,5 +106,13 @@ export class Tab3Page implements AfterViewInit {
     const sector2Chart = new google.visualization.ScatterChart(document.getElementById('sector2_chart'));
     sector1Chart.draw(sector1Data, sector1Options);
     sector2Chart.draw(sector2Data, sector2Options);
+  }
+
+  handleRefresh(event: CustomEvent) {
+    setTimeout(() => {
+      // Any calls to load data go here
+      this.getHistorialRiego();
+      (event.target as HTMLIonRefresherElement).complete();
+    }, 2000);
   }
 }

@@ -1,7 +1,12 @@
+<!-- Enlaces para preconectar a los servidores de Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Enlace a la fuente Tektur de Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@75..100,400..900&display=swap" rel="stylesheet">
+
+<!-- Encabezado de la página con una barra de herramientas -->
 <ion-header [translucent]="true">
+  <!-- Barra de herramientas con el título -->
   <ion-toolbar class="head">
     <ion-title class="title">
       Sectores
@@ -9,26 +14,41 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- Contenido de la página -->
 <ion-content [fullscreen]="true" class="fondo">
+  <!-- Contenedor principal que engloba los botones -->
   <div class="parent-container">
+    
+    <!-- Contenedor para el primer sector -->
     <div class="contBtn1">
       <h1>Sector 1</h1>
       <div class="contBtn1only">
-        <ion-button class="btn1" fill="solid" expand="block" (click)="stateConfiguracion()">Activar</ion-button>
+        <!-- Botón para activar o desactivar el primer sector -->
+        <ion-button 
+          [ngClass]="{'btn1-on': estado1, 'btn1-off': !estado1}" 
+          fill="solid" 
+          expand="block" 
+          (click)="toggleEstado1()">
+          <!-- Texto del botón según el estado del primer sector -->
+          {{ estado1 ? 'Desactivar' : 'Activar' }}
+        </ion-button>
       </div>
-
     </div>
     
-    
+    <!-- Contenedor para el segundo sector -->
     <div class="contBtn2">
       <h1>Sector 2</h1>
       <div class="contBtn2only">
-        <ion-button class="btn2" fill="solid" expand="block" (click)="stateConfiguracion2()">Activar</ion-button>
+        <!-- Botón para activar o desactivar el segundo sector -->
+        <ion-button 
+          [ngClass]="{'btn2-on': estado2, 'btn2-off': !estado2}" 
+          fill="solid" 
+          expand="block" 
+          (click)="toggleEstado2()">
+          <!-- Texto del botón según el estado del segundo sector -->
+          {{ estado2 ? 'Desactivar' : 'Activar' }}
+        </ion-button>
       </div>
-
     </div>
   </div>
-  
-
-  
 </ion-content>

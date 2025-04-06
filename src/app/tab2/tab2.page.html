@@ -1,7 +1,10 @@
+<!-- Vinculación de la fuente de Google Fonts (Tektur) para su uso en la aplicación -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@75..100,400..900&display=swap" rel="stylesheet">
-<ion-header [translucent]="true" >
+
+<!-- Encabezado de la página, utilizando un ion-header con fondo translúcido -->
+<ion-header [translucent]="true">
   <ion-toolbar class="head">
     <ion-title class="title">
       Configuracion
@@ -9,31 +12,38 @@
   </ion-toolbar>
 </ion-header>
 
-
+<!-- Contenido principal de la página -->
 <ion-content [fullscreen]="true" class="fondo">
+  
+  <!-- Sección para configurar el Sector 1 -->
   <h1 class="h1">Sector 1</h1>
+  
+  <!-- Grid con filas y columnas para configurar la fecha de inicio -->
   <ion-grid>
     <ion-row>
       <ion-col>
         <h3 class="h3">Fecha de inicio</h3>
       </ion-col>
       <ion-col>
-        <ion-datetime-button datetime="datetime-inicio"  ></ion-datetime-button>
-        <ion-modal [keepContentsMounted]="true" class="datetime-inicio" >
-          <ng-template >
-            <ion-datetime class="datetime-inicio" id="datetime-inicio" presentation="date" (ionChange)="onFechaInicioChange($event)" ></ion-datetime>
+        <!-- Botón para abrir un modal con el datetime para seleccionar la fecha de inicio -->
+        <ion-datetime-button datetime="datetime-inicio"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true" class="datetime-inicio">
+          <ng-template>
+            <ion-datetime class="datetime-inicio" id="datetime-inicio" presentation="date" (ionChange)="onFechaInicioChange($event)"></ion-datetime>
           </ng-template>
         </ion-modal>
       </ion-col>
     </ion-row>
   </ion-grid>
-  
+
+  <!-- Grid para configurar la fecha de fin -->
   <ion-grid>
     <ion-row>
       <ion-col>
         <h3>Fecha de fin</h3>
       </ion-col>
       <ion-col>
+        <!-- Botón para abrir el modal con el datetime para la fecha de fin -->
         <ion-datetime-button datetime="datetime-fin"></ion-datetime-button>
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
@@ -43,11 +53,11 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  
 
-
-
+  <!-- Título para la configuración de los días de la semana en el Sector 1 -->
   <h1 class="h1">Dias de la semana</h1>
+  
+  <!-- Grid para mostrar los botones de selección de los días de la semana -->
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col size="auto" *ngFor="let dia of diasSector1">
@@ -61,12 +71,14 @@
     </ion-row>
   </ion-grid>
 
+  <!-- Grid para configurar la hora de apertura -->
   <ion-grid>
     <ion-row>
       <ion-col>
         <h3>Hora de apertura</h3>
       </ion-col>
       <ion-col>
+        <!-- Botón para abrir el modal con el datetime para la hora de apertura -->
         <ion-datetime-button datetime="datetime-hora-apertura"></ion-datetime-button>
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
@@ -77,65 +89,77 @@
     </ion-row>
   </ion-grid>
 
+  <!-- Grid para configurar la duración en minutos -->
   <ion-grid>
     <ion-row>
       <ion-col>
         <h3>Duracion (min)</h3>
       </ion-col>
       <ion-col>
-        <ion-input [(ngModel)]="configuracion.duracion" type="number" id="duracion" placeholder="Agregue la duracion" ></ion-input>
+        <!-- Input para agregar la duración en minutos -->
+        <ion-input [(ngModel)]="configuracion.duracion" type="number" id="duracion" placeholder="Agregue la duracion"></ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
 
+  <!-- Grid para configurar las pausas -->
   <ion-grid>
     <ion-row>
       <ion-col>
         <h3>Pausas</h3>
       </ion-col>
       <ion-col>
+        <!-- Input para agregar el número de pausas -->
         <ion-input [(ngModel)]="configuracion.pausas" type="number" id="pausas" placeholder="Agregue las pausas"></ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
 
+  <!-- Grid para configurar el tiempo entre pausas -->
   <ion-grid>
     <ion-row>
       <ion-col>
         <h3>Timepo entre pausas (min)</h3>
       </ion-col>
       <ion-col>
+        <!-- Input para configurar el tiempo entre pausas en minutos -->
         <ion-input [(ngModel)]="configuracion.duracionPausa" type="number" id="tiempo-pausas" placeholder="Tiempo entre pausas"></ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
 
+  <!-- Botón para guardar los cambios de configuración para el Sector 1 -->
   <ion-button class="Guardar Guardarancho" expand="block" (click)="guardar('67bb6f2e85118d10af317f79')">Guardar</ion-button>
 
-
+  <!-- Sección para configurar el Sector 2 -->
   <h1 class="h1">Sector 2</h1>
+  
+  <!-- Grid para configurar la fecha de inicio del Sector 2 -->
   <ion-grid>
     <ion-row>
       <ion-col>
         <h3>Fecha de inicio</h3>
       </ion-col>
       <ion-col>
+        <!-- Botón para abrir el modal con el datetime para la fecha de inicio -->
         <ion-datetime-button datetime="datetime-inicio2"></ion-datetime-button>
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
-            <ion-datetime id="datetime-inicio2"presentation="date" (ionChange)="onFechaInicioChange2($event)"></ion-datetime>
+            <ion-datetime id="datetime-inicio2" presentation="date" (ionChange)="onFechaInicioChange2($event)"></ion-datetime>
           </ng-template>
         </ion-modal>
       </ion-col>
     </ion-row>
   </ion-grid>
-  
+
+  <!-- Grid para configurar la fecha de fin del Sector 2 -->
   <ion-grid>
     <ion-row>
       <ion-col>
         <h3>Fecha de fin</h3>
       </ion-col>
       <ion-col>
+        <!-- Botón para abrir el modal con el datetime para la fecha de fin -->
         <ion-datetime-button datetime="datetime-fin2"></ion-datetime-button>
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
@@ -145,11 +169,11 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  
 
-
-
+  <!-- Título para la configuración de los días de la semana en el Sector 2 -->
   <h1 class="h1">Dias de la semana</h1>
+  
+  <!-- Grid para mostrar los botones de selección de los días de la semana -->
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col size="auto" *ngFor="let dia of diasSector2">
@@ -163,12 +187,14 @@
     </ion-row>
   </ion-grid>
 
+  <!-- Grid para configurar la hora de apertura del Sector 2 -->
   <ion-grid>
     <ion-row>
       <ion-col>
         <h3>Hora de apertura</h3>
       </ion-col>
       <ion-col>
+        <!-- Botón para abrir el modal con el datetime para la hora de apertura -->
         <ion-datetime-button datetime="datetime-hora-apertura2"></ion-datetime-button>
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
@@ -179,38 +205,45 @@
     </ion-row>
   </ion-grid>
 
+  <!-- Grid para configurar la duración en minutos del Sector 2 -->
   <ion-grid>
     <ion-row>
       <ion-col>
         <h3>Duracion (min)</h3>
       </ion-col>
       <ion-col>
+        <!-- Input para agregar la duración en minutos -->
         <ion-input [(ngModel)]="configuracion2.duracion" type="number" id="duracion" placeholder="Agregue la duracion"></ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
 
+  <!-- Grid para configurar las pausas del Sector 2 -->
   <ion-grid>
     <ion-row>
       <ion-col>
         <h3>Pausas</h3>
       </ion-col>
       <ion-col>
+        <!-- Input para agregar el número de pausas -->
         <ion-input [(ngModel)]="configuracion2.pausas" type="number" id="pausas" placeholder="Agregue las pausas"></ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
 
+  <!-- Grid para configurar el tiempo entre pausas del Sector 2 -->
   <ion-grid>
     <ion-row>
       <ion-col>
         <h3>Timepo entre pausas (min)</h3>
       </ion-col>
       <ion-col>
+        <!-- Input para configurar el tiempo entre pausas en minutos -->
         <ion-input [(ngModel)]="configuracion2.duracionPausa" type="number" id="tiempo-pausas" placeholder="Tiempo entre pausas"></ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
 
+  <!-- Botón para guardar los cambios de configuración para el Sector 2 -->
   <ion-button class="Guardar Guardarancho" expand="block" (click)="guardar2('67bb79ac1c82e9d42d445882')">Guardar</ion-button>
 </ion-content>

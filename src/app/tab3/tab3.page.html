@@ -1,20 +1,31 @@
 <ion-header [translucent]="true">
+  <!-- Barra de herramientas de la cabecera con fondo translúcido -->
   <ion-toolbar class="head">
     <ion-title class="title">
+      <!-- Título de la página -->
       Historial de Riegos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="fondo">
+  <!-- Componente de refresco para actualizar la vista cuando el usuario lo desee -->
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <!-- Contenido del componente de refresco -->
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Encabezado colapsable que se muestra en vistas más pequeñas -->
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Historial de Riegos</ion-title>
     </ion-toolbar>
   </ion-header>
 
+  <!-- Contenedor para el gráfico del sector 1 -->
   <div id="sector1_chart" class="sector1_chart"></div>
+
+  <!-- Contenedor para el gráfico del sector 2 -->
   <div id="sector2_chart" class="sector2_chart"></div>
 
 </ion-content>
-

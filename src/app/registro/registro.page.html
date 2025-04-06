@@ -1,37 +1,50 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@75..100,400..900&display=swap" rel="stylesheet">
+
 <ion-content [fullscreen]="true" class="fondo">
-  <ion-header [translucent]="true" >
+  <ion-header [translucent]="true">
+    <!-- Barra de título de la página -->
     <ion-toolbar class="head">
       <ion-title class="title">
         Aqua Control
       </ion-title>
     </ion-toolbar>
   </ion-header>
+
   <div class="container maT">
     <ion-card class="fondo card">
       <ion-card-header>
+        <!-- Contenedor para el logo de la aplicación -->
         <div class="container-img">
           <img src='assets/img/logo.jpg' alt="Logo" class="img-logo" />
         </div>
       </ion-card-header>
 
       <ion-card-content>
+        <!-- Campo de entrada para el nombre de usuario -->
         <ion-input [(ngModel)]="credenciales.usuario" placeholder="Username" type="text" class="input1" required style="--padding-top: 15px; --padding-bottom: 15px;"></ion-input>
+        <!-- Mensaje de error si el campo de usuario tiene algún problema -->
         <p *ngIf="errores.usuario" class="error-text" style="color: red;">{{ errores.usuario }}</p>
 
+        <!-- Campo de entrada para el email -->
         <ion-input [(ngModel)]="credenciales.email" placeholder="Email" type="email" required class="input1" style="--padding-top: 15px; --padding-bottom: 15px;"></ion-input>
+        <!-- Mensaje de error si el campo de email tiene algún problema -->
         <p *ngIf="errores.email" class="error-text" style="color: red;">{{ errores.email }}</p>
 
+        <!-- Campo de entrada para la contraseña -->
         <ion-input [(ngModel)]="credenciales.password" placeholder="Password" type="password" required class="input1">
+          <!-- Opción para mostrar/ocultar la contraseña -->
           <ion-input-password-toggle slot="end"></ion-input-password-toggle>
         </ion-input>
+        <!-- Mensaje de error si el campo de contraseña tiene algún problema -->
         <p *ngIf="errores.password" class="error-text" style="color: red;">{{ errores.password }}</p>
       </ion-card-content>
 
+      <!-- Botón para registrar el usuario -->
       <ion-button (click)="insertar()" fill="solid" expand="block" class="register-button">Register</ion-button>
 
+      <!-- Enlace para ir al login si ya se tiene cuenta -->
       <div class="forgot-container">
         <a href="login" class="label-registrar">I already have an account</a>
       </div>
